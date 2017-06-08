@@ -1,0 +1,543 @@
+@import url(https://fonts.googleapis.com/css?family=Lato)
+@import url(https://fonts.googleapis.com/css?family=Raleway)
+
+$background: #383d61
+$headercolor: #313332
+$textcolor: #999999
+$white: #FFFFFF
+$green: #287a34
+$fonts: "Lato", sans-serif
+$fonts2: "Raleway", sans-serif
+
+=transform($transform)
+	-webkit-transform: $transform
+	-moz-transform: $transform
+	-o-transform: $transform
+	transform: $transform
+
+=transition($transition)
+	-webkit-transition: $transition
+	-moz-transition: $transition
+	-o-transition: $transition
+	transition: $transition
+* 
+	box-sizing: border-box
+
+body
+	margin: 0
+	font-family: $fonts
+
+[class*="col-"]
+	padding: 0
+	text-align: center
+	position: relative
+	display: inline-block
+
+.none
+	display: none
+	background-color: #FFFFFF
+
+.col-s-1
+	width: 8.33%
+.col-s-2
+	width: 16.66%
+.col-s-3
+	width: 25%
+.col-s-4
+	width: 33.33%
+.col-s-5
+	width: 41.66%
+.col-s-6
+	width: 50%
+.col-s-7
+	width: 58.33%
+.col-s-8
+	width: 66.66%
+.col-s-9
+	width: 75%
+.col-s-10
+	width: 83.33%
+.col-s-11
+	width: 91.66%
+.col-s-12 
+	width: 100%
+
+h1
+	margin: 0
+	text-transform: uppercase
+	font-size: 40px
+	font-weight: normal
+	line-height: 1.1
+	color: $headercolor
+p
+	font-size: 22px
+	line-height: 1.7
+	color: $textcolor
+	padding: 0 20px
+	font-family: $fonts2
+
+.row:before
+	content: ""
+	display: table
+.row:after
+	@extend .row:before
+	clear: both
+.container
+	margin: 0 auto
+	max-width: 1200px
+	width: 100%
+
+header 
+	background-color: $background
+	width: 100%
+	position: fixed
+	z-index: 999
+header	
+	.row .col-s-12:first-of-type
+		display: -webkit-flex
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 0 10px
+	img
+		padding: 0
+		width: 100px
+		height: 100px						
+	.hamburger
+		display: inlne-block
+		background-color: $white
+		border-radius: 50%
+		width: 70px
+		height: 60px
+		display: -webkit-flex
+		display: flex
+		justify-content: center
+		align-items: center
+		padding: 0 20px
+	#nav-icon
+		width: 30px
+		height: 40px
+		position: relative
+		margin: 10px auto
+		+transform(rotate(0deg))
+		+transition(.5s ease-in-out)
+		cursor: pointer
+		span
+			display: block
+			position: absolute
+			height: 8px
+			width: 100%
+			background: $background
+			border-radius: 9px
+			opacity: 1
+			left: 0
+			+transform(rotate(0deg))
+			+transition(.25s ease-in-out)
+			&:nth-child(1)
+				top: 0px
+			&:nth-child(2)
+				top: 15px
+			&:nth-child(3)
+				top: 30px	
+		&.open
+			span
+				&:nth-child(1)
+					top: 18px
+					+transform(rotate(135deg))
+				&:nth-child(2)
+					opacity: 0
+					left: -60px
+				&:nth-child(3)
+					top: 18px
+					+transform(rotate(-135deg))		
+	.menu
+		overflow: hidden
+		height: 0
+		margin: 0
+		padding: 0
+		width: 100%
+		list-style-type: none
+		text-align: center
+	.visible
+		overflow: visible
+	ul
+		li
+			display: inline-block
+			width: 100%
+			border-bottom: 2px solid $white
+			&:last-of-type
+				border-bottom: none
+			a
+				line-height: 50px
+				display: block
+				color: $white
+				padding: 0 15px
+				text-decoration: none
+				text-transform: uppercase
+				font-size: 20px
+				&:hover
+					color: #287a34
+					transition: 0.4s
+					background-color: #C5C5C5
+		&.menu.menu-open
+			max-height: 1000px
+			+transition(max-height 0.5s)
+
+.jumbotron
+	width: 100%
+	height: 70vh
+	background: url(https://images.pexels.com/photos/290506/pexels-photo-290506.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+	background-size: cover
+	background-position: center
+	overflow: hidden
+	position: relative
+	.slogan
+		position: absolute
+		top: 35%
+		background-color: rgba(1,1,1,0.4)
+		width: 100%
+		padding: 40px
+		h1
+			color: $white
+		h2
+			margin: 0 
+			text-transform: uppercase
+			font-size: 40px
+			font-weight: bolder
+			color: $white
+			line-height: 1.1
+			
+.merits
+	.container
+		margin: 20px auto
+		.icon-btn
+			height: 150px
+			width: 150px
+			border: none
+			background-color: #2b2f50
+			border-radius: 8%
+			margin: 5px
+			cursor: default
+			font-size: 100px
+			line-height: 75px
+			&:hover
+				background-color: $green
+				transition: 0.4s
+			&:hover + h2
+				color: $green
+				transition: 0.4s
+		.tree
+			color: $white
+		.map
+			color: $white
+		.bed
+			color: $white
+		h2
+			text-transform: uppercase
+			color: $headercolor
+			
+.heading 
+	height: 150px
+	h1
+		color: $headercolor
+		font-weight: 900
+		font-family: "Arial Black", sans-serif
+.gallery
+	margin: 200px 0
+	img
+		width: 100%
+		height: 100%
+	div
+		display: inline-block
+	[class*="col-"]
+		overflow: hidden
+		&:hover	.layer
+			display: none
+			transition: 0.4s
+		&:hover .icon-btn
+			display: none
+			transition: 0.4s
+	.layer
+		position: absolute
+		text-align: center
+		width: 100%
+		height: 100%
+		background: rgba(0,0,0,0.5)
+		display: none
+		transition: 0.3s
+		.icon-btn
+			width: 30px
+			height: 30px
+			margin: 95px 40px
+			background-color: $white
+			border-radius: 8%
+			color: $background
+			display: none
+			border: none
+			
+.workers
+	margin: 100px 0
+	img
+		width: 100%
+		height: 100%
+		max-width: 270px
+		max-height: 270px
+		border-radius: 50%
+		border: none
+	.layer
+		position: absolute
+		text-align: center
+		width: 100%
+		height: 100%
+		max-width: 270px
+		max-height: 270px
+		border-radius: 50%
+		display: none
+		z-index: -1
+	.circle:hover .layer
+		transition: 0.4s
+		background-color: rgba(0,0,0,0.5)
+		z-index: 1
+	.description
+		position: absolute
+	h3
+		padding: 33% 0
+		color: $white
+		font-size: 25px
+	h2
+		color: #5F5F5D
+.cartoon
+	background-color: $background
+	.row
+		padding: 40px 0
+		img
+			margin: 80px 0 0 0 
+			height: 100%
+			width: 100%
+		h1
+			text-align: center
+			margin: 80px 0 0 30px
+			color: $white
+			font-weight: 900
+			font-family: "Arial Black", sans-serif
+			font-size: 50px
+			
+		p
+			margin: 20px 0 0 30px
+			text-align: center
+			color: $white
+			padding: 0
+		.italic
+			font-style: italic
+			
+.numbers
+	margin: 0 auto
+	.row
+		width: 100%
+	[class*="col-"]
+		float: left
+	h3
+		text-align: center
+		font-family: $fonts2
+		font-size: 60px
+		font-weight: 800
+		margin: 10px auto
+	p
+		text-align: center
+		text-transform: uppercase
+		font-size: 25px
+		font-family: $fonts2
+		color: $background
+		font-weight: 700
+
+.footer
+	background-color: $background
+	margin: 0 auto
+	overflow: hidden
+	padding: 0
+	.container
+		margin-bottom: 0
+	h2
+		position: relative
+	.container
+		.row
+			div
+				&:nth-of-type(1) h2::after
+					content: ''
+					position: absolute
+					width: 200%
+					height: 2px
+					background: $white
+					left: 120px
+					top: 0
+					bottom: 0
+					margin: auto
+				&:nth-of-type(2) h2::after
+					content: ''
+					position: absolute
+					width: 300%
+					height: 2px
+					background: $white
+					left: 120px
+					top: 0
+					bottom: 0
+					margin: auto
+				&:nth-of-type(3) h2::after
+					content: ''
+					position: absolute
+					width: 300%
+					height: 2px
+					background: $white
+					left: 170px
+					top: 0
+					bottom: 0
+					margin: auto
+	p
+		line-height: 1.3
+		margin: 0
+		padding: 0
+		font-size: 20px
+	.col-m-4
+		display: inline-block
+		padding: 30px 30px
+		h2
+			transform: uppercase
+			text-align: left
+			color: $white
+		p
+			color: $white
+			text-align: left
+	.col-3, .col-9
+		color: $white
+	.pad
+		padding-right: 10px
+	.icon-btn
+		background-color: $green
+		color: $white
+		font-size: 12px
+		text-align: center
+		width: 40px
+		height: 40px
+		margin: 10px 5px
+		border: none
+	.media
+		text-align: left
+	i
+		font-size: 25px
+		&.fa:hover
+			cursor: pointer
+
+.copyrights
+	background-color: #21243a
+	height: 70px
+	color: $white
+	font-weight: normal
+  	
+@media (min-width: 769px)
+	.hamburger
+		visibility: hidden
+	.col-m-1
+		width: 8.33%
+	.col-m-2
+		width: 16.66%
+	.col-m-3
+		width: 25%
+	.col-m-4
+		width: 33.33%
+	.col-m-5
+		width: 41.66%
+	.col-m-6
+		width: 50%
+	.col-m-7
+		width: 58.33%
+	.col-m-8
+		width: 66.66%
+	.col-m-9
+		width: 75%
+	.col-m-10
+		width: 83.33%
+	.col-m-11
+		width: 91.66%
+	.col-m-12 
+		width: 100%
+	[class*="col-"]
+		float: left
+	header nav .row ul
+		height: auto
+		padding: 15px 0
+		li
+			width: auto
+			border: none
+	.jumbotron .slogan
+		left: 45%
+		width: 55%
+	.gallery [class*="col-m-"]
+		overflow: hidden
+		max-height: 200px
+		max-width: 500px
+	.col-m-12
+		max-width: 1000px
+	.row
+		margin: 0 auto
+		text-align: center
+	.gallery [class*="col-"]:hover .layer, .gallery [class*="col-"]:hover .layer .icon-btn
+		display: inline-block
+		transition: 0.3s
+	.workers .layer
+		display: inline-block
+	.cartoon p, .cartoon h1
+		text-align: left
+		
+	.footer .container .row  div:nth-of-type(1) h2::after
+		width: 50%
+	.footer .container .row  div:nth-of-type(2) h2::after
+		width: 33%
+	.footer .container .row  div:nth-of-type(3) h2::after 
+		width: 40%
+		
+@media (min-width: 1200px)
+	.none
+		display: block
+	.col-1
+		width: 8.33%
+	.col-2
+		width: 16.66%
+	.col-3
+		width: 25%
+	.col-4
+		width: 33.33%
+	.col-5
+		width: 41.66%
+	.col-6
+		width: 50%
+	.col-7
+		width: 58.33%
+	.col-8
+		width: 66.66%
+	.col-9
+		width: 75%
+	.col-10
+		width: 83.33%
+	.col-11
+		width: 91.66%
+	.col-12 
+		width: 100%
+	header .row ul li
+		margin: 0 20px
+	header .row ul li a
+		font-size: 25px
+		
+	.jumbotron .slogan
+		left: 55%
+		width: 45%
+		
+	.gallery [class*="col-"]
+		overflow: hidden
+		height: 200px
+		max-width: 100%
+
+			
+	
+			
+			
+			
